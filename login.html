@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Basico</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div>
+      <h2>Iniciar Sesion</h2>
+      <form id="loginForm">
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" required />
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" required />
+
+        <button type="submit">Ingresar</button>
+
+        <div id="message"></div>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          if (username === "admin" && password === "password") {
+            window.location.href = "welcome.html";
+          } else {
+            document.getElementById("message").textContent =
+              "Usuario o contraseña incorrectos.";
+            document.getElementById("message").style.color = "red";
+          }
+        });
+    </script>
+  </body>
+</html>
