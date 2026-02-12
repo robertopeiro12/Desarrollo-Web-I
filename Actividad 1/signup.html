@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div>
+      <h2>Crear Cuenta</h2>
+      <form id="signupForm">
+        <label for="fullname">Nombre Completo:</label>
+        <input type="text" id="fullname" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" required />
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" required />
+
+        <label for="confirmPassword">Confirmar Contraseña:</label>
+        <input type="password" id="confirmPassword" required />
+
+        <button type="submit">Registrarse</button>
+
+        <div id="message"></div>
+
+        <p style="margin-top: 15px; font-size: 14px">
+          ¿Ya tienes cuenta?
+          <a href="login.html" style="color: #007bff; text-decoration: none"
+            >Inicia sesión</a
+          >
+        </p>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const password = document.getElementById("password").value;
+          const confirmPassword =
+            document.getElementById("confirmPassword").value;
+
+          if (password !== confirmPassword) {
+            document.getElementById("message").textContent =
+              "Las contraseñas no coinciden.";
+            document.getElementById("message").style.color = "red";
+          } else {
+            // Simulación de registro exitoso
+            document.getElementById("message").textContent =
+              "Registro exitoso. Redirigiendo...";
+            document.getElementById("message").style.color = "green";
+
+            setTimeout(function () {
+              window.location.href = "login.html";
+            }, 1500);
+          }
+        });
+    </script>
+  </body>
+</html>
