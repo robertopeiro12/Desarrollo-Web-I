@@ -44,7 +44,9 @@
         .addEventListener("submit", function (event) {
           event.preventDefault();
 
-          const password = document.getElementById("password").value;
+          const username = document.getElementById("newUsername").value;
+          const email = document.getElementById("newEmail").value;
+          const password = document.getElementById("newPassword").value;
           const confirmPassword =
             document.getElementById("confirmPassword").value;
 
@@ -52,15 +54,37 @@
             document.getElementById("message").textContent =
               "Las contraseñas no coinciden.";
             document.getElementById("message").style.color = "red";
-          } else {
-            document.getElementById("message").textContent =
-              "Registro exitoso. Redirigiendo...";
-            document.getElementById("message").style.color = "green";
-
-            setTimeout(function () {
-              window.location.href = "login.html";
-            }, 1500);
+            return;
           }
+          let users = JSON.parse(localStorage.getItem("users")) || [];
+
+          const userExists = users.some((user) => user.username === username);
+          if (userExists) {
+            document.getElementById("message").textContent =
+              "El nombre de usuario ya existe.";
+            document.getElementById("message").style.color = "red";
+            return;
+          }
+
+          const newUser = {
+            username: username,
+            email: email,
+            password: password,
+            registeredAt: new Date().toISOString,
+          };
+          users.push(newUser);
+          localStorage.setItem("users", JSON.stringify(users));
+
+          console.log("Nuevo usuario registrado: ", newUser);
+          console.log("Todos los usuarios: ", users);
+
+          document.getElementById("message").textContent =
+            "Registro exitoso. Redirigiendo a login.";
+          document.getElementById("message").style.color = "green";
+
+          setTimeout(() => {
+            window.location.href = "login.html";
+          }, 2000);
         });
     </script>
   </body>
