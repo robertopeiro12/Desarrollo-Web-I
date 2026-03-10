@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Page</title>
+    <title>Batalla Pokémon</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="components.js"></script>
   </head>
@@ -11,15 +11,83 @@
     <div id="header"></div>
 
     <main class="main-content">
-      <h1>Acerca de</h1>
-      <p>Esta es la página de información sobre nuestra aplicación.</p>
-      <p>
-        Aquí puedes encontrar detalles sobre el proyecto y su funcionalidad.
-      </p>
+      <div class="battle-container">
+        <div id="selection-phase">
+          <div class="selection-header">
+            <h1>Batalla Pokemon</h1>
+          </div>
+
+          <div class="selectors-container">
+            <div class="pokemon-selector">
+              <h3>Pokemon 1</h3>
+              <select id="select-pokemon1">
+                <option value="">Cargando...</option>
+              </select>
+              <img
+                id="selected1-img"
+                class="selected-img"
+                src=""
+                alt=""
+                style="display: none"
+              />
+              <p id="selected1-name" class="selected-name">Sin seleccionar</p>
+            </div>
+            <div class="vs-divider">VS</div>
+            <div class="pokemon-selector">
+              <h3>Pokemon 2</h3>
+              <select id="select-pokemon2">
+                <option value="">Cargando...</option>
+              </select>
+              <img
+                id="selected2-img"
+                class="selected-img"
+                src=""
+                alt=""
+                style="display: none"
+              />
+              <p id="selected2-name" class="selected-name">Sin seleccionar</p>
+            </div>
+          </div>
+
+          <button id="start-battle-btn" disabled>Iniciar Batalla</button>
+        </div>
+
+        <div id="battle-phase" style="display: none">
+          <h1>Batalla</h1>
+          <div class="battle-arena">
+            <div class="fighter">
+              <img id="fighter1-img" class="fighter-img" src="" alt="" />
+              <h3 id="fighter1-name"></h3>
+              <div class="hp-bar-container">
+                <div class="hp-fill" id="fighter1-hp-fill"></div>
+              </div>
+              <span class="hp-text" id="fighter1-hp-text">100%</span>
+            </div>
+            <div class="vs-battle">VS</div>
+            <div class="fighter">
+              <img id="fighter2-img" class="fighter-img" src="" alt="" />
+              <h3 id="fighter2-name"></h3>
+              <div class="hp-bar-container">
+                <div class="hp-fill" id="fighter2-hp-fill"></div>
+              </div>
+              <span class="hp-text" id="fighter2-hp-text">100%</span>
+            </div>
+          </div>
+          <div id="battle-log"></div>
+        </div>
+
+        <div id="winner-phase" style="display: none">
+          <h1>GANADOR</h1>
+          <img id="winner-img" src="" alt="Ganador" />
+          <h2 id="winner-name"></h2>
+          <button id="new-battle-btn">Nueva Batalla</button>
+        </div>
+      </div>
     </main>
 
     <div id="footer"></div>
 
     <script src="auth.js"></script>
+    <script src="pokemon.js"></script>
   </body>
 </html>
