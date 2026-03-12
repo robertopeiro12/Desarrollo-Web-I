@@ -154,8 +154,10 @@ function startBattle() {
   }
 
   document.getElementById('battle-log').innerHTML = '';
-  addBattleLog(`La batalla comienza: <strong>${battleState.fighters[0].name}</strong> vs <strong>${battleState.fighters[1].name}</strong>`);
-  addBattleLog(`${battleState.fighters[0].name} tiene mayor velocidad y ataca primero.`);
+  addBattleLog(
+    `La batalla comienza: <strong>${battleState.fighters[0].name}</strong> vs <strong>${battleState.fighters[1].name}</strong>. ` +
+    `${battleState.fighters[0].name} tiene mayor velocidad y ataca primero.`
+  );
 
   battleInterval = setInterval(() => {
     if (battleState.finished) {
@@ -266,11 +268,7 @@ function updateHPBars() {
 
 function addBattleLog(message) {
   const log = document.getElementById('battle-log');
-  const entry = document.createElement('div');
-  entry.className = 'log-entry';
-  entry.innerHTML = message;
-  log.appendChild(entry);
-  log.scrollTop = log.scrollHeight;
+  log.innerHTML = `<div class="log-entry">${message}</div>`;
 }
 
 function showWinner(winner) {
