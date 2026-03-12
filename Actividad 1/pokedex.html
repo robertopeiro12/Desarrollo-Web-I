@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="components.js"></script>
+  </head>
+  <body class="page-with-header">
+    <div id="header"></div>
+
+    <main class="main-content">
+      <div class="pokedex-container">
+        <h1>Pokedex</h1>
+
+        <p id="pokedex-status">Cargando Pokemon...</p>
+
+        <div class="pokedex-layout">
+          <section id="pokedex-list" class="pokedex-list"></section>
+          <section id="pokemon-detail" class="pokemon-detail"></section>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="auth.js"></script>
+    <script src="pokedex.js"></script>
+  </body>
+</html>
