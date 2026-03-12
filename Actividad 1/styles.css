@@ -98,7 +98,6 @@ p {
     line-height: 1.6;
 }
 
-/* Header styles */
 header {
     background-color: #007bff;
     color: white;
@@ -133,7 +132,6 @@ nav a:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Main content styles */
 .main-content {
     flex: 1;
     display: flex;
@@ -143,7 +141,6 @@ nav a:hover {
     padding: 40px 20px;
 }
 
-/* Footer styles */
 footer {
     background-color: #333;
     color: white;
@@ -167,7 +164,6 @@ footer p {
     margin: 0 auto;
 }
 
-/* Selection */
 .selection-header {
     margin-bottom: 10px;
 }
@@ -246,7 +242,6 @@ footer p {
     cursor: not-allowed;
 }
 
-/* Battle Arena */
 .battle-arena {
     display: flex;
     justify-content: space-around;
@@ -329,7 +324,6 @@ footer p {
     border-bottom: none;
 }
 
-/* Winner */
 #winner-phase {
     flex-direction: column;
     align-items: center;
